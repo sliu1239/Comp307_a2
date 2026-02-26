@@ -1,0 +1,79 @@
+/* Base layout */
+body { margin: 0; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  gap: 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #111; }
+.brand-logo { width: 36px; height: 36px; object-fit: contain; }
+.brand-name { font-weight: 700; }
+
+.main-nav { display: flex; gap: 16px; flex-wrap: wrap; }
+.main-link { text-decoration: none; color: #111; padding: 6px 8px; border-radius: 8px; }
+
+/* Main menu hover */
+.main-link:hover { background: #f2f2f2; }
+
+/* Utility hover must be different */
+.utility { display: flex; align-items: center; gap: 12px; }
+.utility-item { cursor: pointer; padding: 6px 8px; }
+.utility-item:hover { text-decoration: underline; } /* different from main nav */
+
+.cta-btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+  cursor: pointer;
+}
+
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 18px 24px 24px;
+}
+
+.hero-card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  background: white;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Card hover interaction */
+.hero-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
+
+.card-icon { width: 40px; height: 40px; object-fit: contain; }
+.card-stat { margin: 10px 0 4px; font-size: 34px; }
+.card-text { margin: 0; color: #444; }
+
+.info-row {
+  padding: 0 24px 28px;
+}
+
+.info-panel {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+/* Hidden helper class */
+.hidden { display: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cards-row { grid-template-columns: 1fr; }
+  .main-nav { gap: 10px; }
+}
