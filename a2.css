@@ -76,6 +76,7 @@ img { max-width: 100%; height: auto; display: block; }
   height: 100%;
   object-fit: cover;          /* crop instead of stretching */
   display: block;
+  object-position: center 30%; /* focus on center of image */
 }
 
 /* Make caption more readable on photos */
