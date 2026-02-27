@@ -1,4 +1,4 @@
-/* Global/Safety */
+/* Global */
 * { box-sizing: border-box; }
 body { margin: 0; overflow-x: hidden; }
 img { max-width: 100%; height: auto; display: block; }
@@ -13,7 +13,7 @@ img { max-width: 100%; height: auto; display: block; }
   background: #ffffff;
   border-bottom: 1px solid #eee;
 
-  flex-wrap: wrap; /* to let it stack nicely on small screens */
+  flex-wrap: wrap; /* to let it stack nicely on phone/tablet */
 }
 
 .brand {
@@ -66,20 +66,19 @@ img { max-width: 100%; height: auto; display: block; }
   cursor: pointer;
 }
 
-/* Carousel Fix (wonky photos) */
+/* Carousel fix (wonky photos) */
 #myCarousel .carousel-item{
-  height: 480px;              /* desktop */
+  height: 480px;    /* desktop */
 }
 
 #myCarousel .carousel-img{
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* crop instead of stretching */
+  object-fit: cover;
   display: block;
-  object-position: center 30%; /* focus on center of image */
+  object-position: center 30%;
 }
 
-/* Make caption more readable on photos */
 #myCarousel .carousel-caption{
   text-shadow: 0 2px 14px rgba(0,0,0,0.35);
 }
@@ -88,34 +87,62 @@ img { max-width: 100%; height: auto; display: block; }
 .cards-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  padding: 18px 24px 24px;
+  gap: 32px;
+  padding: 60px 60px 70px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-card {
   border: 1px solid #eee;
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 22px;
+  padding: 48px 32px;
   cursor: pointer;
   background: white;
+
+  min-height: 320px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 /* Card hover interaction */
 .hero-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
 }
 
-/* Selected state (so clicking realistic) */
+/* Selected state (clicking) */
 .hero-card.selected {
   border-color: #111;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
-.card-icon { width: 40px; height: 40px; object-fit: contain; }
-.card-stat { margin: 10px 0 4px; font-size: 34px; }
-.card-text { margin: 0; color: #444; }
+/* Logo sizing */
+.card-icon { 
+  width: 120px; 
+  height: 120px; 
+  object-fit: contain; 
+  margin-bottom: 24px;
+}
+
+/* Text sizing */
+.card-stat { 
+  margin: 10px 0 6px; 
+  font-size: 34px; 
+  font-weight: 600; 
+}
+
+.card-text { 
+  margin: 0; 
+  color: #444; 
+  font-size: 16px; 
+}
 
 /* Info Row */
 .info-row { padding: 0 24px 28px; }
@@ -131,40 +158,47 @@ img { max-width: 100%; height: auto; display: block; }
 .hidden { display: none; }
 
 /* Responsiveness */
-
-/* Tablet-ish: 3 cards -> 2 cards */
 @media (max-width: 900px){
-  .cards-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cards-row { 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    padding: 40px 30px 50px;
+  }
+
   .main-nav { gap: 10px; }
 
   #myCarousel .carousel-item{ height: 360px; }
+
+  .hero-card { min-height: 280px; }
+
+  .card-icon { width: 95px; height: 95px; }
 }
 
-/* Phone: clean stacking */
 @media (max-width: 600px){
   .topbar { padding: 12px 16px; }
 
-  /* Put brand on its own line */
   .brand { width: 100%; }
 
-  /* Utility on its own line */
   .utility { width: 100%; justify-content: space-between; }
 
-  /* Menu on its own line */
   .main-nav {
     width: 100%;
     justify-content: flex-start;
     gap: 10px;
   }
 
-  /* make the nav more compact on phone */
   .main-link { padding: 6px 10px; }
 
-  /* Cards: 1 per row on phone */
   .cards-row {
     grid-template-columns: 1fr;
-    padding: 14px 16px 18px;
+    padding: 30px 20px 40px;
   }
+
+  .hero-card {
+    min-height: 260px;
+    padding: 36px 24px;
+  }
+
+  .card-icon { width: 80px; height: 80px; }
 
   .info-row { padding: 0 16px 18px; }
 
